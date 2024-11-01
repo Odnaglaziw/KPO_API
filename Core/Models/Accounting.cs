@@ -3,9 +3,9 @@
     public class Accounting
     {
         public const int MAX_LENGTH = 250;
-        private Accounting(int storeId, DateOnly date, string description)
+        private Accounting(Guid id,int storeId, DateOnly date, string description)
         {
-            Id = Guid.NewGuid();
+            Id = id;
             StoreId = storeId;
             Date = date;
             Description = string.IsNullOrEmpty(description) ? description : string.Empty;
@@ -20,13 +20,13 @@
         public string Status { get; } = string.Empty;
         public string Description { get; } = string.Empty;
 
-        static public (Accounting Accounting, string Error) Create(int storeId, DateOnly date, string description)
+        static public (Accounting Accounting, string Error) Create(Guid id, int storeId, DateOnly date, string description)
         {
             var error = string.Empty;
 
             //if
 
-            var accounting = new Accounting(storeId, date, description);
+            var accounting = new Accounting(id, storeId, date, description);
 
             return (accounting, error);
         }

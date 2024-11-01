@@ -5,9 +5,9 @@ namespace Core.Models
     public class Employee
     {
         public const int MAX_LENGTH = 50;
-        private Employee(string login, string password,string name, string lastName, string position)
+        private Employee(Guid id, string login, string password,string name, string lastName, string position)
         {
-            Id = Guid.NewGuid();
+            Id = id;
             Login = login;
             Password = password;
             Name = name;
@@ -21,7 +21,7 @@ namespace Core.Models
         public string Login { get; } = string.Empty;
         public string Password { get; } = string.Empty;
 
-        static public (Employee Employee, string Error) Create(string login, string password,string name, string lastName, string position)
+        static public (Employee Employee, string Error) Create(Guid id, string login, string password,string name, string lastName, string position)
         {
             var error = string.Empty;
 
@@ -34,7 +34,7 @@ namespace Core.Models
                 error = $"Максимальная длинна поля {MAX_LENGTH} символов";
             }
 
-            var employee = new Employee(name, lastName, position);
+            var employee = new Employee(id, login, password, name, lastName, position);
 
             return (employee,error);
         }

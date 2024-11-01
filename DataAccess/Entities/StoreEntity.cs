@@ -2,7 +2,7 @@
 {
     public class StoreEntity
     {
-        public int Id { get; }
-        public string Address { get; } = string.Empty;
+        public int Id { get; set; }
+        public string Address { get; set; } = string.Empty;
     }
 }

@@ -2,9 +2,9 @@
 {
     public class Attendance
     {
-        private Attendance(Guid accountingId, Guid employeeId, string arrivalCode)
+        private Attendance(Guid id, Guid accountingId, Guid employeeId, string arrivalCode)
         {
-            Id = Guid.NewGuid();
+            Id = id;
             AccountingId = accountingId;
             EmployeeId = employeeId;
             ArrivalCode = arrivalCode;
@@ -17,13 +17,13 @@
         public TimeOnly ArrivalTime { get; }
         public TimeOnly DepartureTime { get; }
 
-        static public (Attendance Attendance, string Error) Create(Guid accountingId,Guid employeeId, string arrivalCode)
+        static public (Attendance Attendance, string Error) Create(Guid id, Guid accountingId,Guid employeeId, string arrivalCode)
         {
             var error = string.Empty;
 
             //if
 
-            var attendance = new Attendance(accountingId, employeeId, arrivalCode);
+            var attendance = new Attendance(id, accountingId, employeeId, arrivalCode);
 
             return (attendance, error);
         }

@@ -6,7 +6,7 @@
         public string Name { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public string Position { get; set; } = string.Empty;
-        public string Login { get; } = string.Empty;
-        public string Password { get; } = string.Empty;
+        public string Login { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
     }
 }

@@ -4,10 +4,10 @@ namespace Core.Abstractions
 {
     public interface IStore
     {
-        Task<Store> GetById(Guid id);
+        Task<Store> GetById(int id);
         Task<List<Store>> GetAll();
-        Task<Guid> Create(Store store);
+        Task<int> Create(Store store);
         Task Update(Store store);
-        Task Delete(Guid id);
+        Task Delete(int id);
     }
 }
