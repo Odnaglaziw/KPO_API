@@ -5,9 +5,11 @@ namespace Core.Models
     public class Employee
     {
         public const int MAX_LENGTH = 50;
-        private Employee(string name, string lastName, string position)
+        private Employee(string login, string password,string name, string lastName, string position)
         {
             Id = Guid.NewGuid();
+            Login = login;
+            Password = password;
             Name = name;
             LastName = lastName;
             Position = position;
@@ -16,8 +18,10 @@ namespace Core.Models
         public string Name { get; } = string.Empty;
         public string LastName { get; } = string.Empty;
         public string Position { get; } = string.Empty;
+        public string Login { get; } = string.Empty;
+        public string Password { get; } = string.Empty;
 
-        static public (Employee Employee, string Error) Create(string name, string lastName, string position)
+        static public (Employee Employee, string Error) Create(string login, string password,string name, string lastName, string position)
         {
             var error = string.Empty;
 
